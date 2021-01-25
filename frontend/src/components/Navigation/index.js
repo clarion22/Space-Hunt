@@ -16,18 +16,21 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to='/signup'>Sign Up</NavLink>
+        <NavLink to='/signup' className='bg-yellow-300' >Sign Up</NavLink>
       </>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to='/'>Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <nav className=''>
+      <ul className=''>
+        <li className='bg-red-500'>
+          <NavLink exact to='/' className='bg-purple-200' >Home</NavLink>
+          {isLoaded && sessionLinks}
+        </li>
+      </ul>
+    </nav>
+
   );
 }
 

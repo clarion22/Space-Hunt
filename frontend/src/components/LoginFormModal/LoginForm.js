@@ -19,13 +19,13 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='block'>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
+      <label className='block'>
         Username or Email
         <input
           type="text"
@@ -34,7 +34,7 @@ function LoginForm() {
           required
         />
       </label>
-      <label>
+      <label className='block'>
         Password
         <input
           type="password"
@@ -43,7 +43,7 @@ function LoginForm() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit" className='block bg-blue-400'>Log In</button>
     </form>
   );
 }
