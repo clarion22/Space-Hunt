@@ -35,12 +35,13 @@ function SignupFormPage() {
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <div className='w-min container mx-auto'>
-          <label className='block text-left'>Full Name</label>
+          <label className='block text-left p-1'>Full Name</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              className='px-8 py-1.5 mb-2'
             />
           <label className='block text-left'>Email</label>
             <input
