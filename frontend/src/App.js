@@ -5,6 +5,7 @@ import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import ProjectHome from './components/ProjectHome/ProjectHome';
+import ProjectDisplay from './components/ProjectDisplay';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,12 +19,17 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/'>
+            <ProjectHome />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='/projects/:id'>
+            <ProjectDisplay />
+          </Route>
         </Switch>
       )}
-       <ProjectHome />
     </>
   );
 }
