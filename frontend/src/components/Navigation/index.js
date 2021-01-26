@@ -24,9 +24,11 @@ function Navigation({ isLoaded }) {
   return (
     <nav className=''>
       <ul className=''>
-        <li className='bg-red-500'>
+        <li className='bg-red-500 flex justify-around'>
           <NavLink exact to='/' className='bg-purple-200' >Home</NavLink>
-          {isLoaded && sessionLinks}
+          <div>
+            {isLoaded && sessionLinks}
+          </div>
         </li>
       </ul>
     </nav>
