@@ -25,7 +25,9 @@ function Navigation({ isLoaded }) {
     <nav className=''>
       <ul className=''>
         <li className='bg-red-500 flex justify-around'>
-          <NavLink exact to='/' className='bg-purple-200' >Home</NavLink>
+          <NavLink exact to='/'>
+            <i className='fas fa-user-circle fa-3x py-2' />
+          </NavLink>
           <div>
             {isLoaded && sessionLinks}
           </div>
