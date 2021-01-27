@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import {useImageContext} from '../../../context/imagecontext';
 
 const BigImageProject = () => {
+  const { mainImage } = useImageContext();
   return (
     <div>
-      <div className='h-64 w-64 bg-red-800'>Main Image</div>
+      <div className=''>
+        <img className='mx-auto w-auto h-auto rounded-lg'src={mainImage} alt="flower" />
+      </div>
     </div>
   )
 }

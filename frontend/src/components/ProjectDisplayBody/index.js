@@ -2,16 +2,17 @@ import React from 'react'
 import BigImageProject from './BigImageProject';
 import ThumbnailImages from './ThumbnailImages';
 import Discussion from '../Discussion';
-
+import summary from './summary';
 const ProjectDisplayBody = () => {
+
   return (
     <div className='mainprojectcontainer'>
-      <div className='leftside'>
-        <section>
+      <div className='leftside p-4'>
+        <section className='bg-white flex flex-col p-4 rounded-lg'>
           <BigImageProject />
           <ThumbnailImages />
-          <div className='descripitiontext'>
-          Create tailored B2B sales emails with a click. Magic Sales Bot uses GPT-3 to create high-converting emails to send to your prospects, allowing you to prospect 10x faster.
+          <div className='descripitiontext p-4'>
+            {summary}
           </div>
         </section>
       </div>
