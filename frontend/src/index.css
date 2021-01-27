@@ -4,15 +4,15 @@
 @tailwind utilities;
 
 .btn {
-  @apply px-4 py-2 rounded-full font-bold;
+  @apply px-4 py-2 rounded-full font-bold hover:shadow-lg transition duration-200 transform hover:-translate-y-0.5;
 }
 
 .btn-yellow {
-  @apply bg-gradient-to-tr from-yellow-50 via-yellow-200 to-green-500 hover:from-pink-500 hover:to-yellow-500;
+  @apply bg-gradient-to-t from-red-500 to-yellow-400 hover:from-yellow-400 hover:to-red-500;
 }
 
 .btn-login {
-  @apply border-2 border-blue-900 mr-4 text-white;
+  @apply border-2 border-blue-900 mr-4 text-white hover:bg-blue-300 hover:text-black;
 }
 
 body {
