@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to='/signup' className='bg-yellow-300' >Sign Up</NavLink>
+        <NavLink to='/signup' className='btn btn-yellow' >Sign Up</NavLink>
       </>
     );
   }
@@ -24,11 +24,11 @@ function Navigation({ isLoaded }) {
   return (
     <nav className=''>
       <ul className=''>
-        <li className='bg-red-500 flex justify-around'>
+        <li className='bg-blue-400 flex justify-around'>
           <NavLink exact to='/'>
             <i className='fas fa-user-circle fa-3x py-2' />
           </NavLink>
-          <div>
+          <div className='flex items-center'>
             {isLoaded && sessionLinks}
           </div>
         </li>

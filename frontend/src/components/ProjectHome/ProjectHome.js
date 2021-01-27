@@ -20,7 +20,7 @@ import { NavLink } from 'react-router-dom';
         {images.map((image, index) => {
           console.log(images);
           return <NavLink to={`/projects/${index}`}>
-            <div className='container mx-auto bg-yellow-100 border-solid border border-gray-500 w-3/5 h-32 hover:bg-yellow-200 transition delay-15'>
+            <div className='projecthome_container'>
              <div className='p-4'>
             <img src={image.webformatURL} className='inline-block h-24 w-24 mb-8' />
             <ul className='inline-block pl-6'>
