@@ -28,8 +28,8 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   }
  return (
-   <div className='z- bg-white max-w-full bottom-0 relative h-screen flex items-center'>
-      <form onSubmit={onSubmit} className='container mx-auto bg-blue-300 w-1/4 flex-col text-center rounded-lg py-5'>
+   <div className='z- bg-white max-w-full bottom-0 relative h-screen flex justify-center'>
+      <form onSubmit={onSubmit} className='container mx-auto bg-blue-300 w-1/4 flex-col text-center rounded-lg py-5 absolute my-40'>
         <h1 className='font-bold block p-6 text-2xl text'>Create a SpaceHunt Account</h1>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -77,7 +77,7 @@ function SignupFormPage() {
               className='form_input'
             />
           </div>
-        <button type="submit" className='btn btn-yellow mt-2 w-3/5'>Sign Up</button>
+        <button type="submit" className='btn btn-yellow mt-4 mb-8 w-3/5'>Sign Up</button>
       </form>
     </div>
   );
