@@ -6,7 +6,17 @@ module.exports = (sequelize, DataTypes) => {
     projectId: DataTypes.INTEGER
   }, {});
   Discussion.associate = function(models) {
-    // associations can be defined here
+    Discussion.hasMany(models.Review, { foreignKey: 'parent_id'})
   };
+
+  Discussion.add = async function ({ content, userId, projectId }) {
+    const discussion = await Discussion.create({
+      content,
+      projectId,
+      userId,
+    });
+    return await Discussion.findByPk(discussion.id);
+  }
+
   return Discussion;
 };
