@@ -48,7 +48,6 @@ export const getDiscussions = (id) => async dispatch => {
     discussion.Reviews.forEach(review => reviews[review.id] = review)
     discussion.Reviews = reviews;
     })
-  debugger;
   dispatch(loadDiscussions(discussionsList));
 }
 
@@ -82,7 +81,9 @@ export const addOneReply = (reply) => async dispatch => {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({parent_id, user_id, content})});
-  dispatch(addReply(response.data));
+  console.log('hitting addonereply thunk')
+  console.log(response.data.reply)
+  dispatch(addReply(response.data.reply));
   return response;
 }
 
