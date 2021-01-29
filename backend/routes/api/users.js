@@ -28,9 +28,7 @@ const validateSignup = [
 ];
 
 router.get('', asyncHandler(async (req, res) => {
-  console.log('hitting the backend user get route')
   const users = await User.findAll();
-  console.log('???????', users)
   res.json(users);
 }))
 
