@@ -16,7 +16,7 @@ const Comment = ({comment}) => {
   console.log('comments are here:', comment.Reviews)
 
   const toggleChange = () => setReplyToggle(value => !value);
-
+  const reviews = Object.values(comment.Reviews)
   return (
     <>
       <div className='commentcontainer p-6 ml-8 my-2 border-l-4'>
@@ -31,7 +31,7 @@ const Comment = ({comment}) => {
         </div>
         {replyToggle && <ReplyField comment={comment} />}
       </div>
-      {comment.Reviews && comment.Reviews.map(reply => {
+      {reviews.length && reviews.map(reply => {
         return <>
         <UserDisplayReply reply={reply} />
         <Reply reply={reply}/>

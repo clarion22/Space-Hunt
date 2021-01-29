@@ -6,6 +6,11 @@ const router = express.Router();
 router.get(`/:id`, asyncHandler(async (req, res) => {
   const id = Number.parseInt(req.params.id);
   const discussions = await Discussion.findAll({ where: { projectId: id}, include:  Review})
+  // discussions.forEach(discussion => {
+  //   const reviews = {};
+  //   discussion.Reviews.forEach(review => reviews[review.id] = review)
+  //   discussion.Reviews = reviews;
+  //   })
   // console.log('backend api project get');
   // console.log(discussions)
   res.json(discussions);

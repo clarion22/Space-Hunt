@@ -43,6 +43,12 @@ const removeReply = (reply) => {
 export const getDiscussions = (id) => async dispatch => {
   const response = await fetch(`/api/projects/${id}`)
   const discussionsList = response.data;
+    discussionsList.forEach(discussion => {
+    const reviews = {};
+    discussion.Reviews.forEach(review => reviews[review.id] = review)
+    discussion.Reviews = reviews;
+    })
+  debugger;
   dispatch(loadDiscussions(discussionsList));
 }
 
@@ -76,7 +82,7 @@ export const addOneReply = (reply) => async dispatch => {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({parent_id, user_id, content})});
-  dispatch(addOneReply(response.data));
+  dispatch(addReply(response.data));
   return response;
 }
 
@@ -104,7 +110,7 @@ const discussionReducer = (state = {}, action) => {
       delete newState[action.discussionId];
       return newState;
     case ADD_ONE_REPLY:
-      newState[action.reply.parent_id].Reviews.push(action.review);
+      newState[action.reply.parent_id].Reviews[action.reply.id] = action.reply;
       return newState;
     case REMOVE_ONE_REPLY:
       delete newState[action.reply.parent_id].Reviews[action.reply.id]
