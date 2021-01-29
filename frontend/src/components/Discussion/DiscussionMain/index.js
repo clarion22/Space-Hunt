@@ -37,8 +37,6 @@ const DiscussionMain = () => {
             <Comment comment={comment}/>
           </>
         })}
-              <Reply />
-              <Reply />
       </>
       }
   </>

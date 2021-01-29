@@ -2,6 +2,8 @@ import React from 'react'
 import {useDispatch} from 'react-redux';
 import * as discussionActions from '../../../store/discussion';
 import {useParams} from 'react-router-dom';
+import Reply from '../Reply';
+import UserDisplayReply from '../UserDisplayReply';
 
 const Comment = ({comment}) => {
   const {id} = useParams();
@@ -9,18 +11,27 @@ const Comment = ({comment}) => {
   const deleteButton = () => {
     dispatch(discussionActions.deleteOneDiscussion(id, comment.id))
   }
+  console.log('comments are here:', comment.Reviews)
   return (
-    <div className='commentcontainer p-6 ml-8 my-2 border-l-4'>
-      <div className='commentmain'>
-        <div className='comment'>
-          {comment.content}
+    <>
+      <div className='commentcontainer p-6 ml-8 my-2 border-l-4'>
+        <div className='commentmain'>
+          <div className='comment'>
+            {comment.content}
+          </div>
+        </div>
+        <button className='bg-blue-200 rounded-lg p-1'>Reply</button>
+        <button onClick={deleteButton} className='bg-red-200 rounded-lg ml-1 p-1'>Delete</button>
+        <div>
         </div>
       </div>
-      <button className='bg-blue-200 rounded-lg p-1'>Reply</button>
-      <button onClick={deleteButton} className='bg-red-200 rounded-lg ml-1 p-1'>Delete</button>
-      <div>
-      </div>
-    </div>
+      {comment.Reviews && comment.Reviews.map(reply => {
+        return <>
+        <UserDisplayReply reply={reply} />
+        <Reply reply={reply}/>
+        </>
+      })}
+    </>
   )
 }
 
