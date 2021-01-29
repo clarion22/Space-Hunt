@@ -3,23 +3,24 @@ import { useParams, useHistory } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import * as discussionActions from '../../../store/discussion';
 
-const ReplyField = () => {
+const ReplyField = ({comment}) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
   const {id} = useParams();
-  let projectId = id;
+  let project_id = id;
+  let parent_id = comment.id;
   const sessionUser = useSelector(state => state.session.user);
-  let userId;
-
+  let user_id;
    function onSubmit (e) {
      e.preventDefault();
      if(sessionUser) {
       console.log('XXXXXXXXXXXXXXXXX')
-      userId = sessionUser.id;
-      console.log(userId);
-     //dispatch add one reply here
+      user_id = sessionUser.id;
+      console.log(user_id);
+     dispatch(discussionActions.addOneReply({parent_id, user_id, content}))
     }
   }
+
 
 
   return (

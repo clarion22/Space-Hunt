@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux';
 import * as discussionActions from '../../../store/discussion';
 import {useParams} from 'react-router-dom';
@@ -29,7 +29,7 @@ const Comment = ({comment}) => {
         <button onClick={deleteButton} className='bg-red-200 rounded-lg ml-1 p-1'>Delete</button>
         <div>
         </div>
-        {replyToggle && <ReplyField />}
+        {replyToggle && <ReplyField comment={comment} />}
       </div>
       {comment.Reviews && comment.Reviews.map(reply => {
         return <>
