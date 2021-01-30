@@ -37,7 +37,7 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
         <div className='titlediv font-bold pb-2'>
         <h1 className=''>Today</h1>
         </div>
-        {matchedProjects.length ? projects.map((project) => {
+        {matchedProjects.length ? matchedProjects.map((project) => {
           return <NavLink key={project.id} to={`/projects/${project.id}`}>
             <div className='projecthome_container'>
              <div className='p-4'>
@@ -52,7 +52,22 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
           </div>
           </div>
           </NavLink>
-        }): <>nothing to see here...</>}
+        }): projects.map((project) => {
+          return <NavLink key={project.id} to={`/projects/${project.id}`}>
+            <div className='projecthome_container'>
+             <div className='p-4'>
+                <img src={roseImgUrl} className='inline-block h-24 w-24 mb-8' />
+            <ul className='inline-block pl-6'>
+              <li className='font-bold'>{project.name}</li>
+              <li className='text-gray-500'>{project.subheading}</li>
+              <li>
+                <CommentCount projectId={project.id}/>
+              </li>
+            </ul>
+          </div>
+          </div>
+          </NavLink>
+        })}
       </div>
     </>
   )
