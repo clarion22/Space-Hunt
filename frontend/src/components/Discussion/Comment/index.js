@@ -20,6 +20,10 @@ const Comment = ({comment}) => {
     console.log('line 20: ', comment)
      reviews = Object.values(comment.Reviews)
   }
+
+  useEffect(() => {
+
+  }, [id])
   return (
     <>
       <div className='commentcontainer p-6 ml-8 my-2 border-l-4'>

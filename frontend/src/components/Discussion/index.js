@@ -11,7 +11,7 @@ const Discussion = () => {
 
   useEffect(() => {
     dispatch(discussionActions.getDiscussions(id));
-  }, [dispatch])
+  }, [dispatch, id])
 
   return (
     <div>

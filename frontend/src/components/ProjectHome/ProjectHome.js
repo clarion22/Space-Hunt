@@ -3,12 +3,11 @@ import CommentCount from './CommentCount.js';
 import { NavLink } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import * as projectActions from '../../store/project';
-const roseImgUrl = "https://pixabay.com/get/g37e70982bb21b25805b44be70b23f1005dbe76d182ebd8e94c6f91c7723e2937318454f0737b28c32f795ea3795ea1f26ba771b3fd699b4306e599c797d8dd45_640.jpg";
+const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0057.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=100&h=100&fit=crop";
  function ProjectHome() {
   const dispatch = useDispatch();
   const [images, setImages] = useState([]);
   const projects = useSelector(state => Object.values(state.project));
-
   // useEffect(() => {
   //   fetch(`https://pixabay.com/api/?key=20010415-a6682cfb4ce63170711548b9b&q=yellow+flowers&image_type=photo`)
   //   .then(res => res.json())
@@ -30,12 +29,12 @@ const roseImgUrl = "https://pixabay.com/get/g37e70982bb21b25805b44be70b23f1005db
           return <NavLink to={`/projects/${project.id}`}>
             <div className='projecthome_container'>
              <div className='p-4'>
-            <img src={roseImgUrl} className='inline-block h-24 w-24 mb-8' />
+                <img src={roseImgUrl} className='inline-block h-24 w-24 mb-8' />
             <ul className='inline-block pl-6'>
               <li className='font-bold'>{project.name}</li>
               <li>{project.subheading}</li>
               <li>
-                <CommentCount />
+                <CommentCount projectId={project.id}/>
               </li>
             </ul>
           </div>
