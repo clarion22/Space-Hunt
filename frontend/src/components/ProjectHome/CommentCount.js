@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 
 function CommentCount({projectId}) {
   const discussions = useSelector(state => Object.values(state.discussion));
+
   const [commentCount, setCommentCount] = useState(0);
 
   const count = () => {
