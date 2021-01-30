@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import CommentCount from './CommentCount.js';
 import { NavLink } from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as projectActions from '../../store/project';
 
  function ProjectHome() {
   const dispatch = useDispatch();
   const [images, setImages] = useState([]);
+  const projects = useSelector(state => Object.values(state.project));
 
   useEffect(() => {
     fetch(`https://pixabay.com/api/?key=20010415-a6682cfb4ce63170711548b9b&q=yellow+flowers&image_type=photo`)
@@ -18,7 +19,7 @@ import * as projectActions from '../../store/project';
     console.log('..................')
     dispatch(projectActions.loadAllProjects())
   }, [dispatch])
-
+  console.log('projects:', projects)
   return (
     <>
       <div className='mt-10' >

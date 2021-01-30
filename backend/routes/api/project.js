@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { Discussion, Review, Project } = require('../../db/models');
 const router = express.Router();
 
-router.get(`/:id`, asyncHandler(async (req, res) => {
+router.get(`/:id(\\d+)`, asyncHandler(async (req, res) => {
   const id = Number.parseInt(req.params.id);
   const discussions = await Discussion.findAll({ where: { projectId: id}, include:  Review})
   // discussions.forEach(discussion => {
@@ -33,9 +33,9 @@ router.delete('/:id/discussions/:discussionId', asyncHandler(async (req, res) =>
   return res.json(discussion.id);
 }))
 
-// router.get('/all', asyncHandler(async (req, res) => {
-//   const projects = await Project.findAll({});
-//   res.json(projects);
-// }))
+router.get('/all', asyncHandler(async (req, res) => {
+  const projects = await Project.findAll({});
+  res.json(projects);
+}))
 
 module.exports = router;
