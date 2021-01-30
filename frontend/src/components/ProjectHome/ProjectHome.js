@@ -23,7 +23,9 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
   return (
     <>
       <div className='mt-10' >
-        <h1 className='text-left'>Today</h1>
+        <div className='titlediv font-bold pb-2'>
+        <h1 className=''>Today</h1>
+        </div>
         {projects.map((project, ) => {
           console.log(images);
           return <NavLink to={`/projects/${project.id}`}>
@@ -32,7 +34,7 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
                 <img src={roseImgUrl} className='inline-block h-24 w-24 mb-8' />
             <ul className='inline-block pl-6'>
               <li className='font-bold'>{project.name}</li>
-              <li>{project.subheading}</li>
+              <li className='text-gray-500'>{project.subheading}</li>
               <li>
                 <CommentCount projectId={project.id}/>
               </li>

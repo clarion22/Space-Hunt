@@ -19,8 +19,8 @@ function CommentCount({projectId}) {
     setCommentCount(count());
   },[commentCount])
   return (
-    <div className='w-12 bg-gray-300 rounded-lg text-center mt-2'>
-      <i className='fas fa-comment' />
+    <div className='w-12 bg-gray-100 rounded-lg text-center mt-2 border'>
+      <i className='fas fa-comment pr-1' />
       {commentCount}
     </div>
   )
