@@ -13,10 +13,13 @@ const Comment = ({comment}) => {
   const deleteButton = () => {
     dispatch(discussionActions.deleteOneDiscussion(id, comment.id))
   }
-  console.log('comments are here:', comment.Reviews)
-
+  console.log('comments are here:', comment, comment.Reviews)
+  let reviews;
   const toggleChange = () => setReplyToggle(value => !value);
-  const reviews = Object.values(comment.Reviews)
+  if (comment) {
+    console.log('line 20: ', comment)
+     reviews = Object.values(comment.Reviews)
+  }
   return (
     <>
       <div className='commentcontainer p-6 ml-8 my-2 border-l-4'>

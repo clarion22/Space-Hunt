@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Discussion, Review } = require('../../db/models');
+const { Discussion, Review, Project } = require('../../db/models');
 const router = express.Router();
 
 router.get(`/:id`, asyncHandler(async (req, res) => {
@@ -32,5 +32,10 @@ router.delete('/:id/discussions/:discussionId', asyncHandler(async (req, res) =>
   await Discussion.destroy({where: { id: discussion.id }});
   return res.json(discussion.id);
 }))
+
+// router.get('/all', asyncHandler(async (req, res) => {
+//   const projects = await Project.findAll({});
+//   res.json(projects);
+// }))
 
 module.exports = router;

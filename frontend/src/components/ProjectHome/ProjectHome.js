@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import CommentCount from './CommentCount.js';
 import { NavLink } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import * as projectActions from '../../store/project';
 
  function ProjectHome() {
-
+  const dispatch = useDispatch();
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -12,6 +14,10 @@ import { NavLink } from 'react-router-dom';
     .then(data => setImages(data.hits))
     .catch(e => console.log(e));
   }, []);
+  useEffect(() => {
+    console.log('..................')
+    dispatch(projectActions.loadAllProjects())
+  }, [dispatch])
 
   return (
     <>

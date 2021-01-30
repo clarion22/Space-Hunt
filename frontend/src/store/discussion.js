@@ -59,6 +59,8 @@ export const addOneDiscussion = (data) => async dispatch => {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({content, projectId, userId}),});
+  console.log('..........slkjfaldfjl')
+  console.log(response.data.discussion)
   dispatch(addDiscussion(response.data));
   return response;
 }
@@ -81,8 +83,6 @@ export const addOneReply = (reply) => async dispatch => {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({parent_id, user_id, content})});
-  console.log('hitting addonereply thunk')
-  console.log(response.data.reply)
   dispatch(addReply(response.data.reply));
   return response;
 }
@@ -105,7 +105,7 @@ const discussionReducer = (state = {}, action) => {
       });
       return newState;
     case ADD_ONE_DISCUSSION:
-      newState[action.payload.discussion.id] = action.payload.discussion;
+      newState[action.payload.id] = action.payload;
       return newState;
     case REMOVE_ONE_DISCUSSION:
       delete newState[action.discussionId];
