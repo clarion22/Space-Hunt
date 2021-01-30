@@ -4,6 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
+import ProjectHome from './components/ProjectHome/ProjectHome';
+import ProjectDisplay from './components/ProjectDisplay';
+import { ImageProvider } from './context/imagecontext';
 
 function App() {
   const dispatch = useDispatch();
@@ -13,16 +16,22 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <ImageProvider>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/'>
+            <ProjectHome />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='/projects/:id'>
+            <ProjectDisplay />
+          </Route>
         </Switch>
       )}
-    </>
+    </ImageProvider>
   );
 }
 

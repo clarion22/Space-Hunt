@@ -7,6 +7,7 @@ import './SignupForm.css';
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -27,48 +28,58 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   }
  return (
-    <form onSubmit={onSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Email
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Username
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+   <div className='z- bg-white max-w-full bottom-0 relative h-screen flex justify-center'>
+      <form onSubmit={onSubmit} className='container mx-auto bg-blue-300 w-1/4 flex-col text-center rounded-lg py-5 absolute my-40'>
+        <h1 className='font-bold block p-6 text-2xl text'>Create a SpaceHunt Account</h1>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+        <div className='w-min container mx-auto'>
+          <label className='form_labeltext'>Full Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className='form_input'
+            />
+          <label className='form_labeltext'>Email</label>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className='form_input'
+            />
+          <label className='form_labeltext'>Username</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className='form_input'
+          />
+          <label className='form_labeltext'> Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className='form_input'
+            />
+
+          <label className='form_labeltext'>Confirm Password</label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              className='form_input'
+            />
+          </div>
+        <button type="submit" className='btn btn-yellow mt-4 mb-8 w-3/5'>Sign Up</button>
+      </form>
+    </div>
   );
 
 }
