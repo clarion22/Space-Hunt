@@ -60,7 +60,7 @@ export const addOneDiscussion = (data) => async dispatch => {
   },
   body: JSON.stringify({content, projectId, userId}),});
   console.log('..........slkjfaldfjl')
-  console.log(response.data.discussion)
+  console.log(response.data)
   dispatch(addDiscussion(response.data));
   return response;
 }
@@ -105,7 +105,8 @@ const discussionReducer = (state = {}, action) => {
       });
       return newState;
     case ADD_ONE_DISCUSSION:
-      newState[action.payload.id] = action.payload;
+      newState[action.payload.discussion.id] = action.payload.discussion;
+      newState[action.payload.discussion.id].Reviews = {};
       return newState;
     case REMOVE_ONE_DISCUSSION:
       delete newState[action.discussionId];
