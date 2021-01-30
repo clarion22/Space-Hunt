@@ -13,11 +13,9 @@ const Comment = ({comment}) => {
   const deleteButton = () => {
     dispatch(discussionActions.deleteOneDiscussion(id, comment.id))
   }
-  console.log('comments are here:', comment, comment.Reviews)
   let reviews;
   const toggleChange = () => setReplyToggle(value => !value);
   if (comment) {
-    console.log('line 20: ', comment)
      reviews = Object.values(comment.Reviews)
   }
 

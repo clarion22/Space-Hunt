@@ -12,7 +12,6 @@ function CommentCount({projectId}) {
         nums++;
       }
     })
-    console.log(nums);
     return nums;
   }
   useEffect(() => {

@@ -1,13 +1,10 @@
 import React from 'react'
-import UserDisplay from '../UserDisplay';
 import * as discussionActions from '../../../store/discussion';
 import {useDispatch} from 'react-redux';
 
 const Reply = ({reply}) => {
   const dispatch = useDispatch();
-  console.log('reply object', reply)
   const deleteReply = () => {
-    console.log('delete reply function triggered')
     dispatch(discussionActions.removeOneReply(reply))
   }
   return (

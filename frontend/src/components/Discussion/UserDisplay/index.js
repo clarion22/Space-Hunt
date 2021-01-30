@@ -8,7 +8,6 @@ const UserDisplay = ({comment}) => {
   useEffect(() => {
     foundUser = users.filter(user => user.id === comment.userId)
     setMyUser(foundUser[0])
-    console.log(myUser)
   },[comment, myUser]);
 
   return (

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { useParams, useHistory } from 'react-router-dom';
+import React, {useState} from 'react'
+import { useParams } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import * as discussionActions from '../../../store/discussion';
 
@@ -14,9 +14,7 @@ const DiscussionInput = () => {
    function onSubmit (e) {
      e.preventDefault();
      if(sessionUser) {
-      console.log('XXXXXXXXXXXXXXXXX')
       userId = sessionUser.id;
-      console.log(userId);
       dispatch(discussionActions.addOneDiscussion({content, projectId, userId}))
     }
   }

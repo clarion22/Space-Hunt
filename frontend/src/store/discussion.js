@@ -53,14 +53,11 @@ export const getDiscussions = (id) => async dispatch => {
 
 export const addOneDiscussion = (data) => async dispatch => {
   const {content, projectId, userId} = data;
-  console.log('inside the thunk add discussion')
   const response = await fetch(`/api/projects/${projectId}/discussions`, {method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({content, projectId, userId}),});
-  console.log('..........slkjfaldfjl')
-  console.log(response.data)
   dispatch(addDiscussion(response.data));
   return response;
 }

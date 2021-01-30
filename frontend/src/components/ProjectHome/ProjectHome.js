@@ -3,10 +3,12 @@ import CommentCount from './CommentCount.js';
 import { NavLink } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import * as projectActions from '../../store/project';
+import {useSearchContext} from '../../context/searchcontext';
 const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0057.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=100&h=100&fit=crop";
  function ProjectHome() {
   const dispatch = useDispatch();
   const [images, setImages] = useState([]);
+  const {searchTerm} = useSearchContext();
   const projects = useSelector(state => Object.values(state.project));
   // useEffect(() => {
   //   fetch(`https://pixabay.com/api/?key=20010415-a6682cfb4ce63170711548b9b&q=yellow+flowers&image_type=photo`)
@@ -16,19 +18,16 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
   // }, []);
 
   useEffect(() => {
-    console.log('..................')
     dispatch(projectActions.loadAllProjects())
   }, [dispatch])
-  console.log('projects:', projects)
   return (
     <>
       <div className='mt-10' >
         <div className='titlediv font-bold pb-2'>
         <h1 className=''>Today</h1>
         </div>
-        {projects.map((project, ) => {
-          console.log(images);
-          return <NavLink to={`/projects/${project.id}`}>
+        {projects.map((project) => {
+          return <NavLink key={project.id} to={`/projects/${project.id}`}>
             <div className='projecthome_container'>
              <div className='p-4'>
                 <img src={roseImgUrl} className='inline-block h-24 w-24 mb-8' />
