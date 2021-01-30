@@ -12,7 +12,7 @@ const ThumbnailImages = () => {
     let url;
     for (let i = 0; i < num; i++) {
       url = array[i].webformatURL;
-      newThumbnail = <div className='bg-green-500 h-16 w-16 m-2 cursor-pointer'>
+      newThumbnail = <div key={i} className='bg-green-500 h-16 w-16 m-2 cursor-pointer'>
         <a onClick={e => setMainImage(e.target.src)}><img className='h-full' src={url} alt="" /></a>
       </div>
       newArray.push(newThumbnail);

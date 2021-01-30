@@ -8,7 +8,6 @@ const UserDisplayReply = ({reply}) => {
   useEffect(() => {
     foundUser = users.filter(user => user.id === reply.user_id)
     setMyUser(foundUser[0])
-    console.log('myuser', myUser)
   },[reply, myUser]);
 
   return (

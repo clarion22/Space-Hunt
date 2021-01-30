@@ -19,11 +19,11 @@ const DiscussionMain = () => {
       }
     })
     setPostComment(newComments);
-  }, [id, comments])
+  }, [id])
 
   useEffect(() => {
     dispatch(userActions.loadAllUsers());
-  }, [dispatch, id])
+  }, [dispatch])
 
   function findUser(commentid, array) {
     return array.filter(word => word.id ==  commentid)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CommentCount from './CommentCount.js';
 import { NavLink } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
@@ -7,8 +7,8 @@ import {useSearchContext} from '../../context/searchcontext';
 const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0057.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=100&h=100&fit=crop";
  function ProjectHome() {
   const dispatch = useDispatch();
-  const [images, setImages] = useState([]);
   const {searchTerm} = useSearchContext();
+  const [matchedProjects, setMatchedProjects] = useState([]);
   const projects = useSelector(state => Object.values(state.project));
   // useEffect(() => {
   //   fetch(`https://pixabay.com/api/?key=20010415-a6682cfb4ce63170711548b9b&q=yellow+flowers&image_type=photo`)
@@ -20,13 +20,24 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
   useEffect(() => {
     dispatch(projectActions.loadAllProjects())
   }, [dispatch])
+
+  useEffect(() => {
+    setMatchedProjects([]);
+    let match = projects.filter(project => project.subheading.split(' ').includes(searchTerm))
+    if (match.length > 0) {
+      setMatchedProjects(match)
+    }
+    console.log('xxxxxxxxxxxxxx')
+    console.log(match);
+    console.log(matchedProjects)
+  }, [searchTerm])
   return (
     <>
       <div className='mt-10' >
         <div className='titlediv font-bold pb-2'>
         <h1 className=''>Today</h1>
         </div>
-        {projects.map((project) => {
+        {matchedProjects.length ? projects.map((project) => {
           return <NavLink key={project.id} to={`/projects/${project.id}`}>
             <div className='projecthome_container'>
              <div className='p-4'>
@@ -41,7 +52,7 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
           </div>
           </div>
           </NavLink>
-        })}
+        }): <>nothing to see here...</>}
       </div>
     </>
   )
