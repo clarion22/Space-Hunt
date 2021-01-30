@@ -2,3 +2,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply px-4 py-2 rounded-full font-bold hover:shadow-lg transition duration-200 transform hover:-translate-y-0.5;
+}
+
+.btn-yellow {
+  @apply bg-gradient-to-t from-red-500 to-yellow-400 hover:from-yellow-400 hover:to-red-500;
+}
+
+.btn-login {
+  @apply border-2 border-blue-900 mr-4 text-white hover:bg-blue-300 hover:text-black;
+}
+
+body {
+  background-color: #f3f3f3;
+  @apply h-screen;
+}
+
+.projecthome_container {
+  @apply container mx-auto bg-white border-t w-3/5 h-32 hover:bg-gray-100;
+}
+
+.form_labeltext {
+  @apply block text-left;
+}
+
+.form_input {
+  @apply px-12 py-1 mb-2 rounded-sm;
+}
+
+.titlediv {
+  padding-left: 20%;
+}
