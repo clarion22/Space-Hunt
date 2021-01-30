@@ -5,7 +5,7 @@ import Discussion from '../Discussion';
 import summary from './summary';
 import {useImageContext, useimageContext} from '../../context/imagecontext';
 
-const ProjectDisplayBody = () => {
+const ProjectDisplayBody = ({project}) => {
   const {imageArr, mainImage, setMainImage} = useImageContext();
   let firstImage = imageArr[0].webformatURL;
 
@@ -20,7 +20,7 @@ const ProjectDisplayBody = () => {
           <BigImageProject />
           <ThumbnailImages />
           <div className='descripitiontext p-4'>
-            {summary}
+            {project.description}
           </div>
         </section>
       </div>
