@@ -10,11 +10,8 @@ const loadProjects = (projects) => {
 }
 
 export const loadAllProjects = () => async dispatch => {
-<<<<<<< HEAD
   const response = await fetch(`/api/projects`)
-=======
-  const response = await fetch(`/api/projects/all`)
->>>>>>> search
+
   const projects = response.data;
   dispatch(loadProjects(projects))
 }

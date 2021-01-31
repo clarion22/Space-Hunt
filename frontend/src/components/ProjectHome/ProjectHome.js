@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import * as projectActions from '../../store/project';
 import {useSearchContext} from '../../context/searchcontext';
+
 const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0057.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=100&h=100&fit=crop";
  function ProjectHome() {
   const dispatch = useDispatch();
@@ -27,9 +28,7 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
     if (match.length > 0) {
       setMatchedProjects(match)
     }
-    console.log('xxxxxxxxxxxxxx')
-    console.log(match);
-    console.log(matchedProjects)
+
   }, [searchTerm])
   return (
     <>
