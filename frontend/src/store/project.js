@@ -10,7 +10,8 @@ const loadProjects = (projects) => {
 }
 
 export const loadAllProjects = () => async dispatch => {
-  const response = await fetch(`/api/projects/all`)
+  const response = await fetch(`/api/projects`)
+
   const projects = response.data;
   dispatch(loadProjects(projects))
 }
