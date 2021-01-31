@@ -32,4 +32,9 @@ router.get('', asyncHandler(async (req, res) => {
   res.json(projects);
 }))
 
+router.get('/discussions', asyncHandler(async (req, res) => {
+  const discussions = await Discussion.findAll({include:  Review})
+  res.json(discussions);
+}))
+
 module.exports = router;
