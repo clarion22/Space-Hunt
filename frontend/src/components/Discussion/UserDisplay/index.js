@@ -13,14 +13,14 @@ const UserDisplay = ({comment}) => {
   return (
     <>
     {myUser && <>
-      <div className='mainuser flex items-start'>
+      <div className='mainuser flex items-start pl-4'>
       <div className='userdetails inline-flex flex-row flex-nowrap'>
-        <div className='userimage'>
+        <div className='userimage flex items-center'>
           <div className='h-8 w-8 rounded-full bg-blue-800 mr-6'></div>
         </div>
       <div className='usercontent flex flex-col'>
-        <span>{myUser.name}</span>
-        <span>{myUser.username}</span>
+        <span className='font-bold'>{myUser.name}</span>
+        <span>{'@' + myUser.username}</span>
       </div>
       </div>
     </div>

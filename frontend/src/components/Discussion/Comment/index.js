@@ -24,7 +24,7 @@ const Comment = ({comment}) => {
   }, [id])
   return (
     <>
-      <div className='commentcontainer p-6 ml-8 my-2 border-l-4'>
+      <div className='commentcontainer p-6 ml-8 mt-4 border-l-4'>
         <div className='commentmain'>
           <div className='comment'>
             {comment.content}

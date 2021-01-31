@@ -14,12 +14,12 @@ const UserDisplayReply = ({reply}) => {
     <>
       <div className='mainuser flex items-start '>
       <div className='userdetails inline-flex flex-row flex-nowrap pl-24 ml-8 pt-4 border-l-4'>
-        <div className='userimage'>
+        <div className='userimage flex items-center'>
           <div className='h-8 w-8 rounded-full bg-green-400 mr-6'></div>
         </div>
       <div className='usercontent flex flex-col'>
-        <span>{myUser.name}</span>
-        <span>{myUser.username}</span>
+        <span className='font-bold'>{myUser.name}</span>
+        <span>{'@' + myUser.username}</span>
       </div>
       </div>
     </div>
