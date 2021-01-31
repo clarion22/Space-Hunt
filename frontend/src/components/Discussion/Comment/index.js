@@ -13,11 +13,9 @@ const Comment = ({comment}) => {
   const deleteButton = () => {
     dispatch(discussionActions.deleteOneDiscussion(id, comment.id))
   }
-  console.log('comments are here:', comment, comment.Reviews)
   let reviews;
   const toggleChange = () => setReplyToggle(value => !value);
   if (comment) {
-    console.log('line 20: ', comment)
      reviews = Object.values(comment.Reviews)
   }
 
@@ -32,8 +30,8 @@ const Comment = ({comment}) => {
             {comment.content}
           </div>
         </div>
-        <button onClick={toggleChange}className='bg-blue-200 rounded-lg p-1'>Reply</button>
-        <button onClick={deleteButton} className='bg-red-200 rounded-lg ml-1 p-1'>Delete</button>
+        <button onClick={toggleChange}className='bg-gray-100 border rounded-lg py-1 px-1.5 hover:bg-gray-200'>Reply</button>
+        <button onClick={deleteButton} className='bg-red-200 rounded-lg ml-1 py-1 px-1.5 border hover:bg-red-300'>Delete</button>
         <div>
         </div>
         {replyToggle && <ReplyField comment={comment} />}

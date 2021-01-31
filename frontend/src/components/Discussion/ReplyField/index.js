@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { useParams, useHistory } from 'react-router-dom';
+import React, {useState} from 'react'
+import { useParams} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import * as discussionActions from '../../../store/discussion';
 
@@ -7,7 +7,6 @@ const ReplyField = ({comment}) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
   const {id} = useParams();
-  let project_id = id;
   let parent_id = comment.id;
   const sessionUser = useSelector(state => state.session.user);
   let user_id;

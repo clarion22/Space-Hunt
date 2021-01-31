@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Comment from '../Comment';
-import Reply from '../Reply';
 import UserDisplay from '../UserDisplay';
 import {useSelector, useDispatch} from 'react-redux';
-import * as discussionActions from '../../../store/discussion';
 import * as userActions from '../../../store/user';
 import {useParams} from 'react-router-dom';
 
@@ -16,19 +14,16 @@ const DiscussionMain = () => {
   let newComments = [];
   useEffect(() => {
     comments.map(comment => {
-      console.log('this is what a comment looks like', comment)
       if (comment.projectId == id) {
         newComments.push(comment)
       }
     })
     setPostComment(newComments);
-    console.log('i give up on this', postComment)
-    console.log('newcomments', newComments);
-  }, [id, newComments])
+  }, [id])
 
   useEffect(() => {
     dispatch(userActions.loadAllUsers());
-  }, [dispatch, id])
+  }, [dispatch])
 
   function findUser(commentid, array) {
     return array.filter(word => word.id ==  commentid)
@@ -39,7 +34,6 @@ const DiscussionMain = () => {
       <>
         {postComment.map(comment => {
           let mainUser = findUser(comment.userId, users)
-          console.log(comment.userId, 'this is comment')
           return <>
             <UserDisplay comment={comment}/>
             <Comment comment={comment}/>

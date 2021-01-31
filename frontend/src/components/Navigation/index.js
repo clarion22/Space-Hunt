@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import Search from '../Search';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -28,6 +29,7 @@ function Navigation({ isLoaded }) {
           <NavLink exact to='/'>
             <i className='fas fa-user-circle fa-3x py-2' />
           </NavLink>
+          <Search />
           <div className='flex items-center'>
             {isLoaded && sessionLinks}
           </div>

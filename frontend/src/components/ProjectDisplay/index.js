@@ -8,17 +8,14 @@ const ProjectDisplay = () => {
   const projects = useSelector(state => Object.values(state.project));
   const [mainProject, setMainProject] = useState('');
   useEffect(() => {
-    console.log('xxxxxxxxxxx', id)
     projects.map(project => {
       if (project.id == id) {
-        console.log(project)
         setMainProject(project)
-        console.log('project has been set', mainProject);
       }
     })
   }, [projects, id])
   return (
-    <div className='header bg-yellow-100 w-1/2 mx-auto border-2 m-16 rounded-lg'>
+    <div className='header bg-yellow-50 w-1/2 mx-auto border-2 m-16 rounded-lg'>
       <ProjectDisplayHeader project={mainProject} />
       <ProjectDisplayBody project={mainProject}/>
     </div>
