@@ -11,6 +11,7 @@ const DiscussionMain = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
   const comments = useSelector(state => Object.values(state.discussion));
+  const replies = useSelector(state => Object.values(state.discussion.replies))
   const users = useSelector(state => Object.values(state.user));
   let newComments = [];
   useEffect(() => {
@@ -20,7 +21,7 @@ const DiscussionMain = () => {
       }
     })
     setPostComment(newComments);
-  }, [id, comments.length])
+  }, [id, comments.length, replies.length])
 
   useEffect(() => {
     dispatch(userActions.loadAllUsers());
