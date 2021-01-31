@@ -10,7 +10,7 @@ const Discussion = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(discussionActions.getDiscussions(id));
+    dispatch(discussionActions.getDiscussions());
   }, [dispatch, id])
 
   return (

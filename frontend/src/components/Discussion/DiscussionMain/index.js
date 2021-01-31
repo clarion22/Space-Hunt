@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import * as userActions from '../../../store/user';
 import {useParams} from 'react-router-dom';
 
+
 const DiscussionMain = () => {
   const [postComment, setPostComment] = useState([])
   const {id} = useParams();
@@ -19,11 +20,12 @@ const DiscussionMain = () => {
       }
     })
     setPostComment(newComments);
-  }, [id])
+  }, [id, comments.length])
 
   useEffect(() => {
     dispatch(userActions.loadAllUsers());
   }, [dispatch])
+
 
   function findUser(commentid, array) {
     return array.filter(word => word.id ==  commentid)
