@@ -41,7 +41,7 @@ const removeReply = (reply) => {
 }
 
 export const getDiscussions = (id) => async dispatch => {
-  const response = await fetch(`/api/projects/${id}`)
+  const response = await fetch(`/api/projects/${id}/discussions/${id}`)
   const discussionsList = response.data;
     discussionsList.forEach(discussion => {
     const reviews = {};
