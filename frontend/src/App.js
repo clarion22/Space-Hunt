@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import ProjectHome from './components/ProjectHome/ProjectHome';
 import ProjectDisplay from './components/ProjectDisplay';
 import { ImageProvider } from './context/imagecontext';
+import * as userActions from './store/user';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(userActions.loadAllUsers())
+  }, [dispatch])
 
   return (
     <ImageProvider>
