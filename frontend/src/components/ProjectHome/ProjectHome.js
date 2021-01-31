@@ -58,11 +58,11 @@ const roseImgUrl = "https://ph-files.imgix.net/348f3556-5b78-47bb-8097-cc37707a0
         }): projects.map((project) => {
           return <NavLink key={project.id} to={`/projects/${project.id}`}>
             <div className='projecthome_container'>
-             <div className='p-4'>
+             <div className='p-4 flex flex-nowrap'>
                 <img src={roseImgUrl} className='inline-block h-24 w-24 mb-8' />
             <ul className='inline-block pl-6'>
               <li className='font-bold'>{project.name}</li>
-              <li className='text-gray-500'>{project.subheading}</li>
+              <li className='text-gray-500 flex'>{project.subheading}</li>
               <li>
                 <CommentCount projectId={project.id}/>
               </li>
