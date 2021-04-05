@@ -39,10 +39,10 @@ export const restoreUser = () => async (dispatch) => {
 }
 
 export const signup = (user) => async (dispatch) => {
-  const { username, email, password } = user;
+  const { name, username, email, password } = user;
   const response = await fetch('/api/users', {
     method: 'POST',
-    body: JSON.stringify({ username, email, password}),
+    body: JSON.stringify({ name, username, email, password}),
   });
   dispatch(setCurrentUser(response.data.user));
   return response;

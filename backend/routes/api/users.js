@@ -8,6 +8,10 @@ const { handleValidationErrors } = require('../../utils/validation');
 const router = express.Router();
 
 const validateSignup = [
+  check('name')
+     .exists({ checkFalsy: true })
+     .isLength({ min: 1 })
+     .withMessage('Please provide a name.'),
   check('email')
     .exists({ checkFalsy: true })
     .isEmail()
@@ -33,8 +37,8 @@ router.get('', asyncHandler(async (req, res) => {
 }))
 
 router.post('', validateSignup, asyncHandler(async (req, res) => {
-  const { email, password, username } = req.body;
-  const user = await User.signup({ email, username, password });
+  const { name, email, password, username } = req.body;
+  const user = await User.signup({ name, email, username, password });
 
   await setTokenCookie(res, user);
 
