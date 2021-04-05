@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/clarion22/Space-Hunt/issues"
   },
-  "homepage": "https://github.com/clarion22/Space-Hunt#readme"
+  "homepage": "https://github.com/clarion22/Space-Hunt#readme",
+  "dependencies": {
+    "sequelize": "^6.6.2"
+  }
 }
