@@ -88,6 +88,17 @@ const singleMulterUpload = (nameOfKey) =>
 const multipleMulterUpload = (nameOfKey) =>
   multer({ storage: storage }).array(nameOfKey);
 
+
+
+// ------------------- Get Objects ---------------------
+
+const multipleFileDownload = async () => {
+  const response = await s3.listObjectsV2({
+    Bucket: NAME_OF_BUCKET,
+  }).promise();
+  return response;
+}
+
 module.exports = {
   s3,
   singlePublicFileUpload,
@@ -97,4 +108,5 @@ module.exports = {
   retrievePrivateFile,
   singleMulterUpload,
   multipleMulterUpload,
+  multipleFileDownload,
 };

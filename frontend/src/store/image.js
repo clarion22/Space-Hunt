@@ -1,5 +1,7 @@
 import { fetch } from './csrf';
 
+
+
 const LOAD_IMAGES = 'images/LOAD_IMAGES';
 
 const loadImages = (images) => {
@@ -11,12 +13,15 @@ const loadImages = (images) => {
 
 export const getImages = () => async dispatch => {
   console.log('step 1')
-  const response = await fetch(`https://pixabay.com/api/?key=20010415-a6682cfb4ce63170711548b9b&q=outer+space&image_type=photo`)
-  const data = await response;
-  console.log('get images', data.data.hits)
-  const images = data.data.hits;
-  dispatch(loadImages(images))
-  return images;
+  // const response = await fetch(`https://pixabay.com/api/?key=20010415-a6682cfb4ce63170711548b9b&q=outer+space&image_type=photo`)
+  // const data = await response;
+  // console.log('get images', data.data.hits)
+  // const images = data.data.hits;
+  // dispatch(loadImages(images))
+  // return images;
+  const response = await fetch(`/api/images/projectimg`)
+  console.log('line 23', response.data.Contents)
+  dispatch(loadImages(response.data.Contents))
 }
 
 const imageReducer = (state = {images: []}, action) => {

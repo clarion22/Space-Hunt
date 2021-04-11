@@ -11,7 +11,9 @@ const ThumbnailImages = () => {
   const projectImgs = useSelector(state => Object.values(state.image.images))
   useEffect(() => {
      setImageArray(projectImgs)
-  }, [])
+     console.log('sssssssssssssssss')
+     console.log(projectImgs, imageArray)
+  }, [projectImgs.length])
 
 
   const imageDivCreate = (num, array) => {
@@ -21,7 +23,7 @@ const ThumbnailImages = () => {
     console.log(array[0], 'aaaaaaaaa aaaaaa')
     if (array[0] !== undefined) {
         for (let i = 0; i < num; i++) {
-          url = array[i].webformatURL;
+          url = array[1].Key;
           newThumbnail = <div key={i} className='bg-green-500 h-16 w-16 m-2 cursor-pointer'>
             <a onClick={e => setMainImage(e.target.src)}><img className='h-full' src={url} alt="" /></a>
           </div>
