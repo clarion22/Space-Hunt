@@ -6,11 +6,12 @@ import {useDispatch, useSelector} from 'react-redux';
 
 
 const ThumbnailImages = () => {
-  const { imageArr, setMainImage } = useImageContext();
+  const { setMainImage } = useImageContext();
   const [imageArray, setImageArray] = useState([])
   const projectImgs = useSelector(state => Object.values(state.image.images))
   useEffect(() => {
      setImageArray(projectImgs)
+     setMainImage(projectImgs[1])
      console.log('sssssssssssssssss')
      console.log(projectImgs, imageArray)
   }, [projectImgs.length])
