@@ -20,7 +20,7 @@ const ProjectDisplayBody = ({project}) => {
     <div className='mainprojectcontainer'>
       <div className='leftside p-4'>
         <section className='bg-white flex flex-col p-4 rounded-lg'>
-          {/* <BigImageProject /> */}
+          <BigImageProject />
           <ThumbnailImages />
           <div className='descripitiontext p-4'>
             {project.description}

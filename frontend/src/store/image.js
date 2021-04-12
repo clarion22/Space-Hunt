@@ -20,15 +20,15 @@ export const getImages = () => async dispatch => {
   // dispatch(loadImages(images))
   // return images;
   const response = await fetch(`/api/images/projectimg`)
-  console.log('line 23', response.data.Contents)
-  dispatch(loadImages(response.data.Contents))
+  // console.log('line 23', response.data.Contents)
+  dispatch(loadImages(response))
 }
 
 const imageReducer = (state = {images: []}, action) => {
   let newState = {...state}
   switch(action.type) {
     case LOAD_IMAGES:
-      newState.images = action.images;
+      newState.images = action.images.data;
       return newState;
     default:
       return state;

@@ -22,8 +22,8 @@ const ThumbnailImages = () => {
     let url;
     console.log(array[0], 'aaaaaaaaa aaaaaa')
     if (array[0] !== undefined) {
-        for (let i = 0; i < num; i++) {
-          url = array[1].Key;
+        for (let i = 1; i < num; i++) {
+          url = array[i];
           newThumbnail = <div key={i} className='bg-green-500 h-16 w-16 m-2 cursor-pointer'>
             <a onClick={e => setMainImage(e.target.src)}><img className='h-full' src={url} alt="" /></a>
           </div>
@@ -33,7 +33,7 @@ const ThumbnailImages = () => {
     return newArray;
   }
 
- let displayDivs = imageDivCreate(6, imageArray);
+ let displayDivs = imageDivCreate(imageArray.length, imageArray);
 
  if (!projectImgs.length || !imageArray.length) return <div>Loading...</div>
 
