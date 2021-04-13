@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useImageContext} from '../../../context/imagecontext';
+
 import {getImages} from '../../../store/image';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -9,6 +10,8 @@ const ThumbnailImages = () => {
   const { setMainImage } = useImageContext();
   const [imageArray, setImageArray] = useState([])
   const projectImgs = useSelector(state => Object.values(state.image.images))
+
+
   useEffect(() => {
      setImageArray(projectImgs)
      setMainImage(projectImgs[1])

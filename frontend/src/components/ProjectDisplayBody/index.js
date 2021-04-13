@@ -5,15 +5,17 @@ import Discussion from '../Discussion';
 import summary from './summary';
 import {useImageContext, useimageContext} from '../../context/imagecontext';
 import {getImages} from '../../store/image';
+import {useParams} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 const ProjectDisplayBody = ({project}) => {
   const {imageArr, mainImage, setMainImage} = useImageContext();
+  const { id } = useParams();
   // let firstImage = imageArr[0].webformatURL;
   const dispatch = useDispatch();
   useEffect(() => {
     // setMainImage(firstImage);
-    dispatch(getImages())
+    dispatch(getImages(`Project${id}`))
   },[dispatch])
 
   return (

@@ -11,7 +11,7 @@ const loadImages = (images) => {
   }
 }
 
-export const getImages = () => async dispatch => {
+export const getImages = (projectId) => async dispatch => {
   console.log('step 1')
   // const response = await fetch(`https://pixabay.com/api/?key=20010415-a6682cfb4ce63170711548b9b&q=outer+space&image_type=photo`)
   // const data = await response;
@@ -19,7 +19,7 @@ export const getImages = () => async dispatch => {
   // const images = data.data.hits;
   // dispatch(loadImages(images))
   // return images;
-  const response = await fetch(`/api/images/projectimg`)
+  const response = await fetch(`/api/images/projectimg/${projectId}`)
   // console.log('line 23', response.data.Contents)
   dispatch(loadImages(response))
 }

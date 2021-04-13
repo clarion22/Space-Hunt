@@ -69,14 +69,6 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-{
-        name: "RadWorks",
-        description: "RadWorks technology is categorized as a hardware system for other applications.  Since its inception in FY12, the RadWorks project has had as its overarching objective to mature and demonstrate affordable, enabling solutions to mitigate the radiation-related challenges of human space exploration.  This has been done through the maturation and demonstration of system-level monitoring and design solutions.  Since FY12, the project has continued to develop and deliver affordable, prototype and flight caliber element-integrated monitoring and alert/warning subsystems capable of enabling both ground-supported and autonomous architectural operations.  In addition, the project has been doing comparative assessments of data collected utilizing radiation modeling programs, as well as producing advancements of modeling capability to enable protection and operational efficiencies for radiation shielding. ",
-        subheading: "Protect crew health through compact, low mass, low power radiation monitoring",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-
     ])
   },
 
