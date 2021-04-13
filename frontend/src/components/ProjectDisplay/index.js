@@ -14,6 +14,8 @@ const ProjectDisplay = () => {
       }
     })
   }, [projects, id])
+
+  useEffect(() => {}, [mainProject])
   return (
     <div className='header bg-yellow-50 w-1/2 mx-auto border-2 m-16 rounded-lg'>
       <ProjectDisplayHeader project={mainProject} />

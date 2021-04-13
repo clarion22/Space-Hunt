@@ -88,6 +88,28 @@ const singleMulterUpload = (nameOfKey) =>
 const multipleMulterUpload = (nameOfKey) =>
   multer({ storage: storage }).array(nameOfKey);
 
+
+
+// ------------------- Get Objects ---------------------
+
+//reformat for url retrival
+const multipleFileDownload = async ( prefix ) => {
+  const images = [];
+  const response = await s3.listObjectsV2({
+    Bucket: NAME_OF_BUCKET,
+    Prefix: prefix,
+  }).promise();
+  console.log('line 101-----------', response)
+  response.Contents.map( photo => {
+    const url = s3.getSignedUrl('getObject', {
+      Bucket: NAME_OF_BUCKET,
+      Key: photo.Key
+    })
+    images.push(url)
+  })
+ return images;
+}
+
 module.exports = {
   s3,
   singlePublicFileUpload,
@@ -97,4 +119,5 @@ module.exports = {
   retrievePrivateFile,
   singleMulterUpload,
   multipleMulterUpload,
+  multipleFileDownload,
 };

@@ -4,6 +4,7 @@ import sessionReducer from './session';
 import discussionReducer from "./discussion";
 import userReducer from './user';
 import projectReducer from './project';
+import imageReducer from  './image';
 
 const rootReducer = combineReducers({
   // add reducer functions here
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   discussion: discussionReducer,
   user: userReducer,
   project: projectReducer,
+  image: imageReducer,
 });
 
 let enhancer;
