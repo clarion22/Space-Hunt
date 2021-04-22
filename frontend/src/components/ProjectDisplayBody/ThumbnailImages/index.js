@@ -15,8 +15,6 @@ const ThumbnailImages = () => {
   useEffect(() => {
      setImageArray(projectImgs)
      setMainImage(projectImgs[1])
-     console.log('sssssssssssssssss')
-     console.log(projectImgs, imageArray)
   }, [projectImgs.length])
 
 

@@ -21,7 +21,7 @@ body {
 }
 
 .projecthome_container {
-  @apply container mx-auto bg-white border-t w-3/5 h-32 hover:bg-gray-100;
+  @apply container mx-auto bg-white border-t w-5/6 h-32 hover:bg-gray-100;
 }
 
 .form_labeltext {
@@ -40,3 +40,15 @@ body {
 .signupform {
   width: 475px;
 }
+
+@media (max-width: 750px) {
+  .projecthome_container {
+    @apply container mx-auto bg-white border-t w-full h-32 hover:bg-gray-100;
+  }
+}
+
+/* @media (min-width: 750) {
+  .projecthome_container {
+    @apply container mx-auto bg-white border-t w-5/6 h-32 hover:bg-gray-100;
+  }
+} */
