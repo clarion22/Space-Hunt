@@ -29,7 +29,8 @@ body {
 }
 
 .form_input {
-  @apply px-12 py-1 mb-2 rounded-sm;
+  @apply px-2 py-1 mb-2 rounded-sm;
+  width: 380px;
 }
 
 .titlediv {
