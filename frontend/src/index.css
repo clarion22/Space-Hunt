@@ -48,7 +48,7 @@ body {
 }
 
 .project_wrapper {
-  @apply w-full bg-red-100;
+  @apply w-full;
 }
 
 @media (min-width: 1000px) {
