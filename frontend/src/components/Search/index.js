@@ -6,7 +6,7 @@ const Search = () => {
   const [term, setTerm] = useState('');
   const onSubmit = (e) => {
     e.preventDefault();
-    setSearchTerm(term)
+    setSearchTerm(term.toLowerCase())
   }
   return (
     <div className='flex items-center'>
