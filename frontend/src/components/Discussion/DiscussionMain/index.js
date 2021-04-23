@@ -31,6 +31,7 @@ const DiscussionMain = () => {
   function findUser(commentid, array) {
     return array.filter(word => word.id ==  commentid)
   }
+
   return (
     <>
     {comments && users &&

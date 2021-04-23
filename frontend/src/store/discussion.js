@@ -101,7 +101,7 @@ export const removeOneReply = (reply) => async dispatch => {
   dispatch(removeReply(response.data));
 }
 
-const discussionReducer = (state = {}, action) => {
+const discussionReducer = (state = {replies: {}}, action) => {
   let newState = {...state};
   switch (action.type) {
     case LOAD_DISCUSSIONS:
