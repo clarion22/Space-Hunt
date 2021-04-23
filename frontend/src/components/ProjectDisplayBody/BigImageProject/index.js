@@ -6,7 +6,7 @@ const BigImageProject = () => {
   return (
     <div>
       <div className=''>
-         <img className='mx-auto w-auto h-auto rounded-lg'src={mainImage} alt="flower" />
+         <img className='mx-auto w-auto lg:max-h-100 rounded-lg'src={mainImage} alt="flower" />
       </div>
     </div>
   )
