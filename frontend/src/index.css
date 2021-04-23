@@ -47,8 +47,12 @@ body {
   }
 }
 
-/* @media (min-width: 750) {
-  .projecthome_container {
-    @apply container mx-auto bg-white border-t w-5/6 h-32 hover:bg-gray-100;
+.project_wrapper {
+  @apply w-full bg-red-100;
+}
+
+@media (min-width: 1000px) {
+  .project_wrapper {
+    padding: 0 10%;
   }
-} */
+}
