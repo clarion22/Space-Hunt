@@ -4,55 +4,55 @@
 @tailwind utilities;
 
 .btn {
-  @apply px-4 py-2 rounded-full font-bold hover:shadow-lg transition duration-200 transform hover:-translate-y-0.5;
+	@apply px-4 py-2 rounded-full font-bold hover:shadow-lg transition duration-200 transform hover:-translate-y-0.5;
 }
 
 .btn-yellow {
-  @apply bg-gradient-to-t from-red-500 to-yellow-400 hover:from-yellow-400 hover:to-red-500;
+	@apply bg-gradient-to-t from-red-500 to-yellow-400 hover:from-yellow-400 hover:to-red-500;
 }
 
 .btn-login {
-  @apply border-2 border-blue-900 mr-4 text-white hover:bg-blue-300 hover:text-black;
+	@apply border-2 border-blue-900 mr-4 text-white hover:bg-blue-300 hover:text-black;
 }
 
 body {
-  background-color: #f3f3f3;
-  @apply h-screen;
+	background-color: #f3f3f3;
+	@apply h-screen;
 }
 
 .projecthome_container {
-  @apply container mx-auto bg-white border-t w-5/6 h-32 hover:bg-gray-100;
+	@apply container mx-auto bg-white border-t w-5/6 h-32 hover:bg-gray-100;
 }
 
 .form_labeltext {
-  @apply block text-left;
+	@apply block text-left;
 }
 
 .form_input {
-  @apply px-2 py-1 mb-2 rounded-sm;
-  width: 380px;
+	@apply px-2 py-1 mb-2 rounded-sm;
+	width: 380px;
 }
 
 .titlediv {
-  padding-left: 20%;
+	padding-left: 20%;
 }
 
 .signupform {
-  width: 475px;
+	width: 475px;
 }
 
 @media (max-width: 750px) {
-  .projecthome_container {
-    @apply container mx-auto bg-white border-t w-full h-32 hover:bg-gray-100;
-  }
+	.projecthome_container {
+		@apply container mx-auto bg-white border-t w-full h-32 hover:bg-gray-100;
+	}
 }
 
 .project_wrapper {
-  @apply w-full;
+	@apply w-full;
 }
 
 @media (min-width: 1000px) {
-  .project_wrapper {
-    padding: 0 10%;
-  }
+	.project_wrapper {
+		padding: 0 16%;
+	}
 }
