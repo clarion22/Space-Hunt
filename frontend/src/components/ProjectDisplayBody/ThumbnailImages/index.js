@@ -20,7 +20,6 @@ const ThumbnailImages = () => {
 		const newArray = [];
 		let newThumbnail;
 		let url;
-		console.log(array[0], 'aaaaaaaaa aaaaaa');
 		if (array[0] !== undefined) {
 			for (let i = 1; i < num; i++) {
 				url = array[i];
