@@ -41,9 +41,6 @@ function ProjectHome() {
 	return (
 		<>
 			<div className='mt-10'>
-				<div className='titlediv font-bold pb-2'>
-					<h1 className=''>Today</h1>
-				</div>
 				{matchedProjects.length
 					? matchedProjects.map((project) => {
 							return (
